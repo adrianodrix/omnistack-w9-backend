@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const chalk = require('chalk');
 
 const appConfig = require('./config/app');
@@ -10,7 +11,11 @@ const dbConfig = require('./config/database');
 const routes = require('./routes');
 
 const app = express();
+
+app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 app.use(routes);
 
 mongoose.set('useNewUrlParser', true);
