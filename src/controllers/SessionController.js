@@ -1,4 +1,4 @@
-const User = require("../models/User");
+const User = require('../models/User');
 // index, show, store, update, destroy
 
 module.exports = {
@@ -12,5 +12,5 @@ module.exports = {
     }
 
     return res.json(user);
-  }
+  },
 };
