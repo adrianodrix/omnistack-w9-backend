@@ -4,6 +4,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const chalk = require('chalk');
+const path = require('path');
 
 const appConfig = require('./config/app');
 const dbConfig = require('./config/database');
@@ -15,6 +16,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use('/files', express.static(path.resolve(__dirname, '..', 'uploads')));
 
 app.use(routes);
 
