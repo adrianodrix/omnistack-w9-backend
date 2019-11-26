@@ -22,4 +22,7 @@ routes.get('/spots', SpotController.index);
 
 routes.get('/dashboard', DashboardController.show);
 
+routes.post('/bookings/:booking_id/approvals', BookingController.approval);
+routes.post('/bookings/:booking_id/rejections', BookingController.rejection);
+
 module.exports = routes;
